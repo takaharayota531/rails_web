@@ -11,7 +11,9 @@ Things you may want to cover:
 - rails 7.0.4.2
 - postgres 14.5
 
-## 初期構築ログ
+## 環境構築ログ
+
+### 初期立ち上げ
 
 参考：[docker 公式ドキュメント](https://docs.docker.jp/compose/rails.html)
 
@@ -35,12 +37,24 @@ docker-compose build
 
 `dataset.yaml`を編集してデータベースへ接続できるようにする
 
+### リンターとフォーマッターを効かせる
+
+ruby で prettier を利用するのは難しく、npm でのインストールが必要であるため美しくない（個人の感想）（[npm での prettier のインストール](https://questbeat.hatenablog.jp/entry/2021/03/03/132127)、[vscode の拡張機能 prettier だけじゃ足りない](https://geniusium.hatenablog.com/entry/2021/03/13/074033)）ので、`rubcop`と言う gem を利用（[使い方](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)）。`settings.json`で ruby ファイルのみ ruby がフォーマットするように設定。
+
+gem をリンター、フォーマッターとして利用するため vscode もコンテナ内の環境で動かす必要がある（ここが rails の好きじゃない点で gem がデフォでプロジェクト単位で管理されないのでマウントしても外部からは見えない）ため、remote container を利用（[参考](https://qiita.com/jjjkkkjjj/items/3b111e4768e740c5cd24)）
+
 ## セットアップ
 
-以下のコマンドで`0.0.0.0:3000`で開発モードでアプリが立ち上がる
+vscode の拡張機能`Remote Container`により web の方のコンテナの中に入れるので、コンテナ内でコーディングをする。
+
+注意
+
+- コンテナ内に`devcontainer.json`で指定した拡張機能がインストールされていることを確認（適宜必要な拡張機能は足してください。[こちらの方法で devcontainer.json への追記を忘れないように](devcontainer.json)）
+
+以下のコマンドで開発モードでアプリが立ち上げ、0.0.0.0:3000 からアクセスできるようになる
 
 ```
-docker-compose up
+rails s -b 0.0.0.0 -p 3000
 ```
 
 <!-- - System dependencies
