@@ -38,7 +38,7 @@ ruby で prettier を利用するのは難しく、npm でのインストール�
 
 gem をリンター、フォーマッターとして利用するため vscode もコンテナ内の環境で動かす必要がある（ここが rails の好きじゃない点で gem がデフォでプロジェクト単位で管理されないのでマウントしても外部からは見えない）ため、remote container を利用（[参考](https://qiita.com/jjjkkkjjj/items/3b111e4768e740c5cd24)）
 
-rubocop の設定ファイルは[このサイト](https://zenn.dev/noraworld/articles/vscode-rubocop)を参考に作成
+rubocop の設定ファイルは[このサイト](https://blog.to-ko-s.com/rubocop-setting/)を参考に作成
 
 ## セットアップ
 
