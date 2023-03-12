@@ -1,15 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 ## 開発環境
 
 - Ruby 3.1.2
 - rails 7.0.4.2
-- postgres 14.5
+- postgres 14
 
 ## 環境構築ログ
 
