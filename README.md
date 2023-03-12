@@ -57,8 +57,11 @@ rails s -b 0.0.0.0 -p 3000
 コンテナ外からは以下のコマンドで動作確認できる。
 
 ```
-docker compose up service
+docker compose up -d
+docker compose exec web rails s -b 0.0.0.0 -p 3000
 ```
+
+※run を使わないのは余計なコンテナを立てないためとポートがデフォルトでマッピングされないから（[参考](https://qiita.com/sekitaka_1214/items/3b5cfdd15fafb74789fa)）
 
 <!-- - System dependencies
 
