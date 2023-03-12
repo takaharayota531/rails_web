@@ -20,11 +20,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "rebornix.ruby",
-        "streetsidesoftware.code-spell-checker",
-        "oderwat.indent-rainbow",
-        "esbenp.prettier-vscode"
-      ]
+		"rebornix.ruby",
+		"streetsidesoftware.code-spell-checker",
+		"oderwat.indent-rainbow",
+		"esbenp.prettier-vscode",
+		"mosapride.zenkaku",
+		"shardulm94.trailing-spaces"
+	]
     }
   }
 
