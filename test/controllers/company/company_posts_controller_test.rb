@@ -20,4 +20,9 @@ class Company::CompanyPostsControllerTest < ActionDispatch::IntegrationTest
     get company_company_posts_index_url
     assert_response :success
   end
+
+  test "should get show" do
+    get company_company_posts_show_url
+    assert_response :success
+  end
 end
