@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :main do
+    get 'pages/home'
+    get 'pages/index'
+    get 'pages/show'
     get 'homes/index'
     get 'homes/new'
   end
