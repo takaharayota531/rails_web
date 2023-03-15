@@ -1,0 +1,2 @@
+module Companies::AccountsHelper
+end
