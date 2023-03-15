@@ -1,0 +1,2 @@
+module Company::CompanyPostsHelper
+end
