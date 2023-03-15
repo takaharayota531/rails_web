@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     get 'company_posts/destroy'
     get 'company_posts/index'
     get 'company_posts/show'
-    get 'company_posts/create'
-    get 'company_posts/edit'
-    get 'company_posts/destroy'
-    get 'company_posts/index'
   end
   
   namespace :user do
