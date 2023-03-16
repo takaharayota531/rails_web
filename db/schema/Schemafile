@@ -1,1 +1,1 @@
-require "companies.schema"
+require "company_model.schema"
