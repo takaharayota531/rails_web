@@ -26,23 +26,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "selection_status", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "company_post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "user_resumes", force: :cascade do |t|
     t.text "best_work", null: false
     t.text "future_job", null: false
     t.text "personality", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,8 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "login_email"
     t.string "password", null: false
     t.string "image", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "post_code", null: false
     t.string "address", null: false
     t.string "school", null: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "company_name"
     t.string "position"
     t.string "working_period"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
 end
