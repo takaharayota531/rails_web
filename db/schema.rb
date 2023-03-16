@@ -10,29 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
+ActiveRecord::Schema[7.0].define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
     t.string "recruiter_name", null: false
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "selection_status", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "company_post_id", null: false
+  create_table "company_accounts", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "password", null: false
+    t.boolean "notification", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "company_overall_infos", force: :cascade do |t|
+    t.string "company_name", null: false
+    t.text "introduction", null: false
+    t.text "company_goal", null: false
+    t.text "application_requirements", null: false
+    t.integer "min_salary", null: false
+    t.integer "max_salary", null: false
+    t.text "employee_welfare", null: false
+    t.integer "work_day", null: false
+    t.integer "work_hour_start", null: false
+    t.integer "work_hour_end", null: false
+    t.integer "work_hour_per_day", null: false
+    t.string "post_code", null: false
+    t.string "workplace", null: false
+    t.string "address", null: false
+    t.string "nearest_station", null: false
+    t.string "homepage_url"
+    t.string "company_logo_url"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "company_post_recruit_infos", force: :cascade do |t|
+    t.text "title", null: false
+    t.text "catch_copy", null: false
+    t.text "catch_copy_description", null: false
+    t.text "desired_person", null: false
+    t.text "work_assignment", null: false
+    t.text "acquire_skill", null: false
+    t.text "company_charm", null: false
+    t.string "main_image_url", null: false
+    t.string "sub_image_url", null: false
+    t.string "sub_left_image_url", null: false
+    t.string "sub_right_image_url", null: false
+    t.string "thumbnail_url", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "company_posts", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "recruit_info", null: false
+    t.integer "overall_info", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
@@ -41,8 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.text "best_work", null: false
     t.text "future_job", null: false
     t.text "personality", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,8 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "login_email"
     t.string "password", null: false
     t.string "image", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
     t.string "post_code", null: false
     t.string "address", null: false
     t.string "school", null: false
@@ -65,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "email", null: false
     t.string "phone_number", null: false
     t.integer "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "working_histories", force: :cascade do |t|
@@ -72,8 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "company_name"
     t.string "position"
     t.string "working_period"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
