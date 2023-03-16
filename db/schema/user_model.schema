@@ -20,8 +20,8 @@ create_table "users", force: true do |t|
 
     t.integer "resume_id", null:false
 
-    t.datetime "created_at", null:false
-	  t.datetime "updated_at", null:false
+    t.timestamps "created_at", null:false
+	  t.timestamps "updated_at", null:false
     
 
 end
@@ -30,8 +30,8 @@ create_table "user_resumes", force: true do |t|
     t.text "best_work", null:false
     t.text "future_job", null:false
     t.text "personality", null:false
-    t.datetime "created_at", null:false
-	  t.datetime "updated_at", null:false
+    t.timestamps "created_at", null:false
+	  t.timestamps "updated_at", null:false
 
 end
 
@@ -41,8 +41,8 @@ create_table "working_histories", force: true do |t|
     t.string "position"
     t.string "working_period"
 
-    t.datetime "created_at", null:false
-	  t.datetime "updated_at", null:false
+    t.timestamps "created_at", null:false
+	  t.timestamps "updated_at", null:false
 
 
 end
