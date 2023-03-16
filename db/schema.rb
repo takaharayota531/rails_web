@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "name"
     t.string "email"
     t.string "phone_number"
@@ -79,7 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.integer "overall_info", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-=======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
@@ -125,7 +123,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_114203) do
     t.string "working_period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
->>>>>>> e19e79bde0d7096ae6d3f0a25038fc325dbf7181
   end
 
 end
