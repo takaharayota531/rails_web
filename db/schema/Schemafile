@@ -1,2 +1,2 @@
-require "companies.schema"
+require "company_model.schema"
 require "user_model.schema"
