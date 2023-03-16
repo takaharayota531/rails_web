@@ -1,0 +1,2 @@
+module Companies::EntriesHelper
+end
