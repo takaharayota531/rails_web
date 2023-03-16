@@ -1,1 +1,4 @@
+-- ridgepoleでの個別schemaの読み取り
+
+-- 企業基本情報のschema
 require "companies.schema"
