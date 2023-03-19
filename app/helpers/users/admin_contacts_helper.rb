@@ -1,0 +1,2 @@
+module Users::AdminContactsHelper
+end
