@@ -42,6 +42,23 @@ rubocop の設定ファイルは[このサイト](https://blog.to-ko-s.com/ruboc
 
 ## セットアップ
 
+### データベースの準備
+
+PostgreSQL はデータベースクラスタを扱うことができ、開発では 1 つのインスタンスの中に開発（develop）環境用データベースとテスト（test）環境用データベースを立てて利用する。
+クローンしたら最初の一回だけ以下のコマンドを実行して 2 つのデータベースを作成する。
+
+```
+docker compose up -d
+docker compose exec web rails db:create
+docker compose down
+```
+
+dbeaver などでデータベースを見たときに dev と test があれば OK。
+
+PostgreSQL のデータは dbdata にマウントされているので、コンテナを消してもボリュームが残っている限り`db:create`をする必要はない。うまく行かない場合はコンテナやボリュームを削除して実行するとよい。
+
+### コーディング環境
+
 vscode の拡張機能`Remote Container`により web のコンテナの中に入れるので、コンテナ内でコーディングする。
 
 注意
