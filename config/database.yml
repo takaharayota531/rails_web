@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: postgres #myapp_development
+  database: dev
 
 test:
   <<: *default
-  database: myapp_test
+  database: test
