@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :companies
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   namespace :companies do
     get 'internships/create'
     get 'internships/edit'
