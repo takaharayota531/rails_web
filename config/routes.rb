@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  namespace :companies do
-    get 'internships/create'
-    get 'internships/edit'
-    get 'internships/destroy'
-    get 'internships/index'
-    get 'internships/show'
-  end
+  devise_for :company_accounts
+  devise_for :companies
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
