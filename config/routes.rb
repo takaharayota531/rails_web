@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admins/new'
   devise_for :admins
   devise_for :company_accounts
   devise_for :companies
