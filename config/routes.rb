@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'admins/new'
+  # 管理者の登録
+  get 'admins/sign_up', to: 'admins#new'
   devise_for :admins
   devise_for :company_accounts
   devise_for :companies

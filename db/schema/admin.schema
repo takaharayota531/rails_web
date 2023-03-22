@@ -1,4 +1,4 @@
-create_table "admin" , force: true do |t|
+create_table "admins" , force: true do |t|
   t.string "name", null:false
   t.string "password", null:false
   t.timestamp "created_at", null:false
