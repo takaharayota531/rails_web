@@ -14,11 +14,19 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admin", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "password", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
     t.string "password", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "email", null: false
   end
 
   create_table "companies", force: :cascade do |t|
