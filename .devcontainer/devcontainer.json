@@ -26,7 +26,8 @@
 		"esbenp.prettier-vscode",
 		"mosapride.zenkaku",
 		"shardulm94.trailing-spaces",
-		"MS-CEINTL.vscode-language-pack-ja"
+		"MS-CEINTL.vscode-language-pack-ja",
+		"eamodio.gitlens"
 	]
     }
   }
