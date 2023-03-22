@@ -17,7 +17,7 @@ create_table "company_accounts", force: true do |t|
 	t.timestamp "updated_at", null:false
 end
 
-create_table "company_posts", force: true do |t|
+create_table "internships", force: true do |t|
     t.integer "company_id", null:false
     t.integer "recruit_info", null:false
     t.integer "overall_info", null: false
@@ -26,7 +26,7 @@ create_table "company_posts", force: true do |t|
 	t.timestamp "updated_at", null:false
 end
 
-create_table "company_overall_infos", force: true do |t|
+create_table "company_overalls", force: true do |t|
     t.string "company_name", null:false
     t.text "introduction", null:false
     t.text "company_goal", null:false
@@ -48,7 +48,7 @@ create_table "company_overall_infos", force: true do |t|
     t.timestamp "updated_at", null:false
 end
 
-create_table "company_post_recruit_infos", force: true do |t|
+create_table "internship_recruits", force: true do |t|
     t.text "title", null:false
     t.text "catch_copy", null:false
     t.text "catch_copy_description", null:false
