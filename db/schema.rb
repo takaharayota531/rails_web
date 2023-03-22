@@ -23,10 +23,10 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
+    t.string "email", null: false
     t.string "password", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.string "email", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "company_overall_infos", force: :cascade do |t|
+  create_table "company_overalls", force: :cascade do |t|
     t.string "company_name", null: false
     t.text "introduction", null: false
     t.text "company_goal", null: false
@@ -70,7 +70,39 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "company_post_recruit_infos", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "internship_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "internship_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "feature_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "internship_feature_category_relations", force: :cascade do |t|
+    t.integer "internship_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "internship_job_category_relations", force: :cascade do |t|
+    t.integer "internship_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "internship_recruits", force: :cascade do |t|
     t.text "title", null: false
     t.text "catch_copy", null: false
     t.text "catch_copy_description", null: false
@@ -87,7 +119,13 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "company_posts", force: :cascade do |t|
+  create_table "internship_skill_category_relations", force: :cascade do |t|
+    t.integer "internship_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "internships", force: :cascade do |t|
     t.integer "company_id", null: false
     t.integer "recruit_info", null: false
     t.integer "overall_info", null: false
@@ -95,14 +133,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "feature_categories", force: :cascade do |t|
+  create_table "job_categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
@@ -110,31 +141,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "jop_categories", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "post_feature_category_relationships", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "post_job_category_relationships", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "post_skill_category_relationships", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "selection_status", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "company_post_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
