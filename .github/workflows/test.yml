@@ -1,0 +1,23 @@
+name: test and deploy
+on: [pull_request]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      #ワークフローにリポジトリーをクローン
+      - uses: actions/checkout@v3
+
+      - name: docker compose up
+        run: docker compose up -d
+
+      - name: set up database
+        run: |
+          docker compose exec web rails db:create RAILS_ENV=test
+          docker compose exec web bundle exec ridgepole -c config/database.yml -E test -f db/schema/Schemafile --apply
+
+      - name: run rails test
+        run: docker compose exec web rails test
+
+      # - name: run rubocop
+      #   run: docker compose exec web rubocop
