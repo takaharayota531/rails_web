@@ -8,14 +8,15 @@ class AdminsController < ApplicationController
     if @admin.save
       # 保存の成功をここで扱う。
     else
-      render 'new'
+      # 成功しなかったらnewをrenderしエラーメッセージを表示する
+      render 'new', status: :unprocessable_entity
     end
   end
 
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :email, :password,
+    params.require(:admin).permit(:email, :password,
                                   :password_confirmation)
   end
 end
