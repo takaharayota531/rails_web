@@ -3,6 +3,12 @@
   "[ruby]": {
     "editor.defaultFormatter": "rebornix.ruby"
   },
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+  },
+  "files.associations": {
+    "*.html.erb": "erb"
+  },
   "editor.formatOnSave": true,
 
   "ruby.useBundler": true, //run non-lint commands with bundle exec
