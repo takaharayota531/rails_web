@@ -6,7 +6,10 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      # 保存の成功をここで扱う。
+      flash[:success] = "adminの登録に成功しました"
+      # TODO: 高原：後でpath通しておく
+      # redirect_to admin_url(@admin)
+
     else
       # 成功しなかったらnewをrenderしエラーメッセージを表示する
       render 'new', status: :unprocessable_entity
