@@ -8,7 +8,6 @@ class AdminTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
-   
     assert @admin.valid?
   end
 
