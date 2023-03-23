@@ -9,7 +9,6 @@ class AdminsController < ApplicationController
       flash[:success] = "adminの登録に成功しました"
       # TODO: 高原：後でpath通しておく
       # redirect_to admin_url(@admin)
-
     else
       # 成功しなかったらnewをrenderしエラーメッセージを表示する
       render 'new', status: :unprocessable_entity
