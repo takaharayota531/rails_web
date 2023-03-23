@@ -11,16 +11,8 @@ class AdminTest < ActiveSupport::TestCase
     assert @admin.valid?
   end
 
-  # test "name should be present" do
-  #   @admin.name = "     "
-  #   assert_not @admin.valid?
-  # end
-
   test "email should be present" do
     @admin.email = "     "
     assert_not @admin.valid?
-  end
-  test "the truth" do
-    assert true
   end
 end
