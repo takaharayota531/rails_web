@@ -20,22 +20,24 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "rebornix.ruby",
-        "streetsidesoftware.code-spell-checker",
-        "oderwat.indent-rainbow",
-        "esbenp.prettier-vscode",
-        "mosapride.zenkaku",
-        "shardulm94.trailing-spaces",
-        "MS-CEINTL.vscode-language-pack-ja",
-        "eamodio.gitlens",
-        "christian-kohler.path-intellisense",
-        "misogi.ruby-rubocop",
-        "aki77.rails-db-schema",
-        "kaiwood.endwise",
-        "castwide.solargraph",
-        "aki77.rails-partial",
-        "aki77.rails-routes"
-      ]
+		"rebornix.ruby",
+		"streetsidesoftware.code-spell-checker",
+		"oderwat.indent-rainbow",
+		"esbenp.prettier-vscode",
+		"mosapride.zenkaku",
+		"shardulm94.trailing-spaces",
+		"MS-CEINTL.vscode-language-pack-ja",
+		"eamodio.gitlens",
+		"christian-kohler.path-intellisense",
+		"misogi.ruby-rubocop",
+		"aki77.rails-db-schema",
+		"kaiwood.endwise",
+		"castwide.solargraph",
+		"aki77.rails-partial",
+		"aki77.rails-routes",
+		"aliariff.vscode-erb-beautify",
+		"vortizhe.simple-ruby-erb"
+	]
     }
   }
 
