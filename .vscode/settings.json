@@ -4,7 +4,7 @@
     "editor.defaultFormatter": "rebornix.ruby"
   },
   "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
   },
   "files.associations": {
     "*.html.erb": "erb"
@@ -17,9 +17,6 @@
   "ruby.lint": {
     "rubocop": {
       "useBundler": true // enable rubocop via bundler
-    },
-    "reek": {
-      "useBundler": true // enable reek via bundler
     }
   },
   "ruby.format": "rubocop", // use rubocop for formatting
