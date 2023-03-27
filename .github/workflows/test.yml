@@ -19,5 +19,5 @@ jobs:
       - name: run rails test
         run: docker compose exec web rails test
 
-      # - name: run rubocop
-      #   run: docker compose exec web rubocop
+      - name: run rubocop
+        run: docker compose exec web rubocop
