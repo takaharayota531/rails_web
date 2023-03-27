@@ -8,23 +8,23 @@ create_table "users", force: true do |t|
   # Enum
   t.integer "gender", limit: 1, null: false, default: 0
 
-  t.string "school", null:false
-  t.string "school_faculty", null:false
-  t.string "school_department"
+  t.string "college_name", null: false
+  t.string "college_faculty", null: false
+  t.string "college_department"
   # Enum
-  t.integer "school_grade", limit: 1, null: false, default: 0
-  t.string "graduate_high_school", null:false 
+  t.integer "college_grade", limit: 1, null: false, default: 0
+  t.integer "high_school_graduated_year", null: false
+  t.string "high_school_name", null: false
 
-  t.string "email", null:false 
-  t.string "phone_number", null:false 
+  t.string "email", null: false
+  t.string "phone_number", null: false
 
   # タグに変わる可能性あり
   t.integer "interesting_job", limit: 1, null: false, default: 0
-  t.boolean "internship_experiment", null: false
-  t.boolean "other_company_offer", null:false
+  t.boolean "has_internship_experiment", null: false
+  t.boolean "has_other_company_offer", null: false
   t.text "self_promotion", limit: 400, null: false
-  
+
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
-
