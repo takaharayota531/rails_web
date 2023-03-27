@@ -34,6 +34,5 @@ class AdminsSignupTest < ActionDispatch::IntegrationTest
     end
 
     assert_not flash.empty?
-    
   end
 end
