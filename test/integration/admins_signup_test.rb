@@ -1,6 +1,8 @@
 require "test_helper"
 
 class AdminsSignupTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   # adminのユーザー登録が失敗した時用のテスト　
   test "invalid signup information" do
     get new_admin_registration_path
@@ -32,7 +34,8 @@ class AdminsSignupTest < ActionDispatch::IntegrationTest
         password_confirmation: "password"
       } }
     end
-
+    # assert admin_signed_in?
+    # puts current_admin
     assert_not flash.empty?
   end
 end

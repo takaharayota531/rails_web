@@ -64,6 +64,7 @@ class AdminsSigninTest < ActionDispatch::IntegrationTest
         password: 'password'
       }
     }
+    # assert admin_signed_in?
     assert_redirected_to root_path
   end
 
