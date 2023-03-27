@@ -2,6 +2,7 @@ require "test_helper"
 
 # adminのログインをテストする
 class AdminsSigninTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @admin = admins(:one)
   end
@@ -9,6 +10,7 @@ class AdminsSigninTest < ActionDispatch::IntegrationTest
   # email,passwordどちらも誤っているとき
   test "sign in with invalid information" do
     get new_admin_session_path
+    assert_response :success
     assert_template 'admin_sessions/new'
     # 不適切なemail,passwordを割り当てたとき
     post admin_session_path, params: { admin: { email: "", password: "" } }
@@ -52,5 +54,23 @@ class AdminsSigninTest < ActionDispatch::IntegrationTest
     # assert is_admin_logged_in?
     # assert_redirected_to @admin
     # follow_redirect!
+  end
+
+  # ログインした後のredirectが適切か調べる
+  test "should post create" do
+    post admin_session_path, params: {
+      admin: {
+        email: @admin.email,
+        password: 'password'
+      }
+    }
+    assert_redirected_to root_path
+  end
+
+  # logout処理のテスト
+  test "should delete destroy" do
+    sign_in @admin
+    delete destroy_admin_session_path
+    assert_redirected_to root_path
   end
 end

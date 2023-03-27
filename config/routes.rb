@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # ルートパスはどこでもいい
+  root to: 'homes#index'
   devise_for :admins, controllers: {
     registrations: 'admins',
     sessions: 'admin_sessions'
