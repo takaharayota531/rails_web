@@ -1,0 +1,9 @@
+one:
+  email: "john@example.com"
+  encrypted_password: <%= Admin.digest('password') %>
+
+
+two:
+  email: "alice@example.com"
+  encrypted_password: <%= Admin.digest('password') %>
+

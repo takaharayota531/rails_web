@@ -3,7 +3,7 @@ require "test_helper"
 class AdminsSignupTest < ActionDispatch::IntegrationTest
   # adminのユーザー登録が失敗した時用のテスト　
   test "invalid signup information" do
-    get admins_sign_up_path
+    get new_admin_registration_path
     # このfileがrenderしているかのテスト
     assert_template 'admins/new'
     # adminに誤って登録されていないかのcheck
@@ -24,7 +24,7 @@ class AdminsSignupTest < ActionDispatch::IntegrationTest
   # adminの登録に成功した時のtest
   # TODO 高原がちゃんとpathとテスト実装しておく
   test "valid signup information" do
-    get admins_sign_up_path
+    get new_admin_registration_path
     assert_difference 'Admin.count', 1 do
       post admins_path, params: { admin: {
         email: "user@example.com",
@@ -32,9 +32,8 @@ class AdminsSignupTest < ActionDispatch::IntegrationTest
         password_confirmation: "password"
       } }
     end
-    # ここのpath後で変更します
-    # follow_redirect!
-    # assert_template 'admins/show'
+
     assert_not flash.empty?
+    
   end
 end
