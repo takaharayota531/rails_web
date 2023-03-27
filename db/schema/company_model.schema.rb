@@ -32,6 +32,7 @@ create_table "internships", force: true do |t|
 end
 create_table "company_overalls", force: true do |t|
   t.string "company_name", null: false
+  t.string "industry"
   t.text "company_explanation", limit: 400, null: false
   t.string "homepage_url"
   t.string "capital_stock"
@@ -52,10 +53,16 @@ create_table "internship_recruits", force: true do |t|
   t.text "salary_remark"
   t.integer "transportation_expense", limit: 1, null: false, default: 0
   t.text "transportation_expense_remark"
-  t.string "grade", null: false
+  t.string "school_grade", null: false
   t.integer "work_day", limit: 1, null: false, default: 0
   t.integer "work_hour", null: false
-  t.string "work_day_of_week", null: false
+  t.boolean "work_day_monday"
+  t.boolean "work_day_tuesday"
+  t.boolean "work_day_wednesday"
+  t.boolean "work_day_thursday"
+  t.boolean "work_day_friday"
+  t.boolean "work_day_saturday"
+  t.boolean "work_day_sunday"
   t.string "member1_positon", limit: 15
   t.text "member1_profile", limit: 100
   t.string "member2_positon", limit: 15
