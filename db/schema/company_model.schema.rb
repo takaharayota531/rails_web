@@ -51,7 +51,7 @@ create_table "internship_recruits", force: true do |t|
   t.integer "min_salary", null: false
   t.integer "max_salary", null: false
   t.text "salary_remark"
-  t.boolean "supplies_transportation_expense", limit: 1, null: false, default: 0
+  t.boolean "supplies_transportation_expense", null: false
   t.text "transportation_expense_remark"
   t.string "college_grade", null: false
   t.integer "working_day", limit: 1, null: false, default: 0

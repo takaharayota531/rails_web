@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "notification", null: false
+    t.boolean "is_notification_enabled", null: false
     t.index ["email"], name: "index_company_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
   end
@@ -56,10 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.text "company_explanation", null: false
     t.string "homepage_url"
     t.string "capital_stock"
-    t.string "employee_number"
     t.string "place"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "employee_count"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -103,18 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.integer "min_salary", null: false
     t.integer "max_salary", null: false
     t.text "salary_remark"
-    t.integer "transportation_expense", limit: 2, default: 0, null: false
     t.text "transportation_expense_remark"
-    t.string "school_grade", null: false
-    t.integer "work_day", limit: 2, default: 0, null: false
-    t.integer "work_hour", null: false
-    t.boolean "work_day_monday"
-    t.boolean "work_day_tuesday"
-    t.boolean "work_day_wednesday"
-    t.boolean "work_day_thursday"
-    t.boolean "work_day_friday"
-    t.boolean "work_day_saturday"
-    t.boolean "work_day_sunday"
     t.string "member1_positon", limit: 15
     t.text "member1_profile"
     t.string "member2_positon", limit: 15
@@ -123,6 +112,17 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.text "member3_profile"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.boolean "supplies_transportation_expense", null: false
+    t.string "college_grade", null: false
+    t.integer "working_day", limit: 2, default: 0, null: false
+    t.integer "working_hour", null: false
+    t.boolean "work_on_monday"
+    t.boolean "work_on_tuesday"
+    t.boolean "work_on_wednesday"
+    t.boolean "work_on_thursday"
+    t.boolean "work_on_friday"
+    t.boolean "work_on_saturday"
+    t.boolean "work_on_sunday"
   end
 
   create_table "internship_skill_category_relations", force: :cascade do |t|
@@ -133,10 +133,10 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "internships", force: :cascade do |t|
     t.integer "company_id", null: false
-    t.integer "recruit_info", null: false
-    t.integer "overall_info", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.integer "internship_recruit_id", null: false
+    t.integer "company_overall_id", null: false
   end
 
   create_table "job_categories", force: :cascade do |t|
@@ -158,19 +158,20 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
     t.integer "gender", limit: 2, default: 0, null: false
-    t.string "school", null: false
-    t.string "school_faculty", null: false
-    t.string "school_department"
-    t.integer "school_grade", limit: 2, default: 0, null: false
-    t.string "graduate_high_school", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
     t.integer "interesting_job", limit: 2, default: 0, null: false
-    t.boolean "internship_experiment", null: false
-    t.boolean "other_company_offer", null: false
     t.text "self_promotion", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "college_name", null: false
+    t.string "college_faculty", null: false
+    t.string "college_department"
+    t.integer "college_grade", limit: 2, default: 0, null: false
+    t.integer "high_school_graduated_year", null: false
+    t.string "high_school_name", null: false
+    t.boolean "has_internship_experiment", null: false
+    t.boolean "has_other_company_offer", null: false
   end
 
 end
