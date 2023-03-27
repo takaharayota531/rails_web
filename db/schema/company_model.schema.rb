@@ -30,43 +30,69 @@ create_table "internships", force: true do |t|
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
-
 create_table "company_overalls", force: true do |t|
   t.string "company_name", null: false
-  t.text "introduction", null: false
-  t.text "company_goal", null: false
-  t.text "application_requirements", null: false
-  t.integer "min_salary", null: false
-  t.integer "max_salary", null: false
-  t.text "employee_welfare", null: false
-  t.integer "work_day", null: false
-  t.integer "work_hour_start", null: false
-  t.integer "work_hour_end", null: false
-  t.integer "work_hour_per_day", null: false
-  t.string "post_code", null: false
-  t.string "workplace", null: false
-  t.string "address", null: false
-  t.string "nearest_station", null: false
+  t.text "company_explanation", limit: 400, null: false
   t.string "homepage_url"
-  t.string "company_logo_url"
+  t.string "capital_stock"
+  t.string "employee_number"
+  t.string "place"
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
 
 create_table "internship_recruits", force: true do |t|
-  t.text "title", null: false
-  t.text "catch_copy", null: false
-  t.text "catch_copy_description", null: false
-  t.text "desired_person", null: false
-  t.text "work_assignment", null: false
-  t.text "acquire_skill", null: false
-  t.text "company_charm", null: false
-  t.string "main_image_url", null: false
-  t.string "sub_image_url", null: false
-  t.string "sub_left_image_url", null: false
-  t.string "sub_right_image_url", null: false
-  t.string "thumbnail_url", null: false
-
+  t.text "title", limit: 35, null: false
+  t.text "catch_copy", limit: 20, null: false
+  t.integer "area", limit: 1, null: false, default: 0
+  t.text "work_assignment", limit: 400, null: false
+  t.text "company_promotion", limit: 400, null: false
+  t.integer "min_salary", null: false
+  t.integer "max_salary", null: false
+  t.text "salary_remark"
+  t.integer "transportation_expense", limit: 1, null: false, default: 0
+  t.text "transportation_expense_remark"
+  t.string "grade", null: false
+  t.integer "work_day", limit: 1, null: false, default: 0
+  t.integer "work_hour", null: false
+  t.string "work_day_of_week", null: false
+  t.string "member1_positon", limit: 15
+  t.text "member1_profile", limit: 100
+  t.string "member2_positon", limit: 15
+  t.text "member2_profile", limit: 100
+  t.string "member3_positon", limit: 15
+  t.text "member3_profile", limit: 100
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
+# add_enum "internship_recruits", "area", [
+#   "足立区",
+#   "荒川区",
+#   "板橋区",
+#   "江戸川区",
+#   "大田区",
+#   "葛飾区",
+#   "北区",
+#   "江東区",
+#   "品川区",
+#   "渋谷区",
+#   "新宿区",
+#   "杉並区",
+#   "墨田区",
+#   "世田谷区",
+#   "台東区",
+#   "中央区",
+#   "千代田区",
+#   "豊島区",
+#   "中野区",
+#   "練馬区",
+#   "文京区",
+#   "港区",
+#   "目黒区",
+#   "東京都（その他）",
+#   "神奈川県",
+#   "埼玉県",
+#   "千葉県"
+# ]
+# add_enum "internship_recruits", "transportation_expense", ["あり", "なし"]
+# add_enum "internship_recruits", "work_day", ["週１回以上", "週２回以上", "週３回以上", "週４回以上", "週５回"]

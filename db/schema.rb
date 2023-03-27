@@ -52,24 +52,13 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "company_overalls", force: :cascade do |t|
     t.string "company_name", null: false
-    t.text "introduction", null: false
-    t.text "company_goal", null: false
-    t.text "application_requirements", null: false
-    t.integer "min_salary", null: false
-    t.integer "max_salary", null: false
-    t.text "employee_welfare", null: false
-    t.integer "work_day", null: false
-    t.integer "work_hour_start", null: false
-    t.integer "work_hour_end", null: false
-    t.integer "work_hour_per_day", null: false
-    t.string "post_code", null: false
-    t.string "workplace", null: false
-    t.string "address", null: false
-    t.string "nearest_station", null: false
     t.string "homepage_url"
-    t.string "company_logo_url"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.text "company_explanation", null: false
+    t.string "capital_stock"
+    t.string "employee_number"
+    t.string "place"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -107,18 +96,26 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   create_table "internship_recruits", force: :cascade do |t|
     t.text "title", null: false
     t.text "catch_copy", null: false
-    t.text "catch_copy_description", null: false
-    t.text "desired_person", null: false
     t.text "work_assignment", null: false
-    t.text "acquire_skill", null: false
-    t.text "company_charm", null: false
-    t.string "main_image_url", null: false
-    t.string "sub_image_url", null: false
-    t.string "sub_left_image_url", null: false
-    t.string "sub_right_image_url", null: false
-    t.string "thumbnail_url", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.integer "area", limit: 2, default: 0, null: false
+    t.text "company_promotion", null: false
+    t.integer "min_salary", null: false
+    t.integer "max_salary", null: false
+    t.text "salary_remark"
+    t.integer "transportation_expense", limit: 2, default: 0, null: false
+    t.text "transportation_expense_remark"
+    t.string "grade", null: false
+    t.integer "work_day", limit: 2, default: 0, null: false
+    t.integer "work_hour", null: false
+    t.string "work_day_of_week", null: false
+    t.string "member1_positon", limit: 15
+    t.text "member1_profile"
+    t.string "member2_positon", limit: 15
+    t.text "member2_profile"
+    t.string "member3_positon", limit: 15
+    t.text "member3_profile"
   end
 
   create_table "internship_skill_category_relations", force: :cascade do |t|
