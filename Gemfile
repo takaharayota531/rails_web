@@ -7,7 +7,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails","7.0.4.2"
 
 gem 'devise'
-
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails", "3.4.2"
 
