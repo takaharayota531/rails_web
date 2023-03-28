@@ -1,4 +1,11 @@
 create_table "users", force: true do |t|
+  t.string "provider", null: false
+  t.string "uid", null: false
+  t.string "name", null: false
+end
+
+create_table "user_infos", force: true do |t|
+  t.string "user_id", null: false
   t.string "family_name", null: false
   t.string "first_name", null: false
   t.integer "birth_year", null: false
