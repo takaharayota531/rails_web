@@ -19,23 +19,24 @@ create_table "company_accounts", force: true do |t|
   t.datetime "updated_at", null: false
   t.index ["email"], name: "index_company_accounts_on_email", unique: true
   t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
-  t.boolean "notification", null: false
+  t.boolean "is_notification_enabled", null: false
 end
 
 create_table "internships", force: true do |t|
   t.integer "company_id", null: false
-  t.integer "recruit_info", null: false
-  t.integer "overall_info", null: false
+  t.integer "internship_recruit_id", null: false
+  t.integer "company_overall_id", null: false
 
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
 create_table "company_overalls", force: true do |t|
   t.string "company_name", null: false
+  t.string "industry"
   t.text "company_explanation", limit: 400, null: false
   t.string "homepage_url"
   t.string "capital_stock"
-  t.string "employee_number"
+  t.string "employee_count"
   t.string "place"
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
@@ -50,12 +51,18 @@ create_table "internship_recruits", force: true do |t|
   t.integer "min_salary", null: false
   t.integer "max_salary", null: false
   t.text "salary_remark"
-  t.integer "transportation_expense", limit: 1, null: false, default: 0
+  t.boolean "supplies_transportation_expense", null: false
   t.text "transportation_expense_remark"
-  t.string "grade", null: false
-  t.integer "work_day", limit: 1, null: false, default: 0
-  t.integer "work_hour", null: false
-  t.string "work_day_of_week", null: false
+  t.string "college_grade", null: false
+  t.integer "working_day", limit: 1, null: false, default: 0
+  t.integer "working_hour", null: false
+  t.boolean "work_on_monday"
+  t.boolean "work_on_tuesday"
+  t.boolean "work_on_wednesday"
+  t.boolean "work_on_thursday"
+  t.boolean "work_on_friday"
+  t.boolean "work_on_saturday"
+  t.boolean "work_on_sunday"
   t.string "member1_positon", limit: 15
   t.text "member1_profile", limit: 100
   t.string "member2_positon", limit: 15

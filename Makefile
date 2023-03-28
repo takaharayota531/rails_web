@@ -4,3 +4,7 @@ migrate:
 
 testmigrate:
 	bundle exec ridgepole -c config/database.yml -f db/schema/Schemafile --apply --dry-run
+
+check:
+	rails test
+	rubocop -a
