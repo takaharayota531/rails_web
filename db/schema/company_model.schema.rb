@@ -19,7 +19,7 @@ create_table "company_accounts", force: true do |t|
   t.datetime "updated_at", null: false
   t.index ["email"], name: "index_company_accounts_on_email", unique: true
   t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
-  t.boolean "is_notification_enabled", null: false
+  t.boolean "is_notification_enabled", null: false, default: false
 end
 
 create_table "internships", force: true do |t|
@@ -52,16 +52,16 @@ create_table "internship_recruits", force: true do |t|
   t.text "catch_copy", limit: 20, null: false
 
   # 職種
-  t.boolean "is_job_category_sale"
-  t.boolean "is_job_category_engineer"
-  t.boolean "is_job_category_planner"
-  t.boolean "is_job_category_marketing"
-  t.boolean "is_job_category_designer"
-  t.boolean "is_job_category_human_resource"
-  t.boolean "is_job_category_editor"
-  t.boolean "is_job_category_clercial"
-  t.boolean "is_job_category_consulting"
-  t.boolean "is_job_category_other"
+  t.boolean "is_job_category_sale", null: false, default: false
+  t.boolean "is_job_category_engineer", null: false, default: false
+  t.boolean "is_job_category_planner", null: false, default: false
+  t.boolean "is_job_category_marketing", null: false, default: false
+  t.boolean "is_job_category_designer", null: false, default: false
+  t.boolean "is_job_category_human_resource", null: false, default: false
+  t.boolean "is_job_category_editor", null: false, default: false
+  t.boolean "is_job_category_clercial", null: false, default: false
+  t.boolean "is_job_category_consulting", null: false, default: false
+  t.boolean "is_job_category_other", null: false, default: false
 
   t.integer "area", limit: 1, null: false, default: 0
   t.text "work_assignment", limit: 400, null: false
@@ -72,28 +72,28 @@ create_table "internship_recruits", force: true do |t|
   t.integer "min_salary", null: false
   t.integer "max_salary", null: false
   t.text "salary_remark"
-  t.boolean "supplies_transportation_expense", null: false
+  t.boolean "supplies_transportation_expense", null: false, default: false
   t.text "transportation_expense_remark"
 
-  t.boolean "intend_for_high_school"
-  t.boolean "intend_for_college1"
-  t.boolean "intend_for_college2"
-  t.boolean "intend_for_college3"
-  t.boolean "intend_for_college4"
-  t.boolean "intend_for_master"
-  t.boolean "intend_for_doctor"
-  t.boolean "intend_for_graduated"
-  t.boolean "intend_for_other"
+  t.boolean "intend_for_high_school", null: false, default: false
+  t.boolean "intend_for_college1", null: false, default: false
+  t.boolean "intend_for_college2", null: false, default: false
+  t.boolean "intend_for_college3", null: false, default: false
+  t.boolean "intend_for_college4", null: false, default: false
+  t.boolean "intend_for_master", null: false, default: false
+  t.boolean "intend_for_doctor", null: false, default: false
+  t.boolean "intend_for_graduated", null: false, default: false
+  t.boolean "intend_for_other", null: false, default: false
 
   t.integer "working_day", limit: 1, null: false, default: 0
   t.integer "working_hour", null: false
-  t.boolean "work_on_monday"
-  t.boolean "work_on_tuesday"
-  t.boolean "work_on_wednesday"
-  t.boolean "work_on_thursday"
-  t.boolean "work_on_friday"
-  t.boolean "work_on_saturday"
-  t.boolean "work_on_sunday"
+  t.boolean "work_on_monday", null: false, default: false
+  t.boolean "work_on_tuesday", null: false, default: false
+  t.boolean "work_on_wednesday", null: false, default: false
+  t.boolean "work_on_thursday", null: false, default: false
+  t.boolean "work_on_friday", null: false, default: false
+  t.boolean "work_on_saturday", null: false, default: false
+  t.boolean "work_on_sunday", null: false, default: false
   t.string "member1_positon", limit: 15
   t.text "member1_profile", limit: 100
   t.string "member2_positon", limit: 15

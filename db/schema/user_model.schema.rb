@@ -28,8 +28,8 @@ create_table "user_infos", force: true do |t|
 
   # タグに変わる可能性あり
   t.integer "interesting_job_category", limit: 1, null: false, default: 0
-  t.boolean "has_internship_experiment", null: false
-  t.boolean "has_other_company_offer", null: false
+  t.boolean "has_internship_experiment", null: false, default: false
+  t.boolean "has_other_company_offer", null: false, default: false
   t.text "self_promotion", limit: 400, null: false
 
   t.timestamp "created_at", null: false
