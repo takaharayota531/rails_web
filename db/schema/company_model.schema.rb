@@ -32,8 +32,12 @@ create_table "internships", force: true do |t|
 end
 create_table "company_overalls", force: true do |t|
   t.string "company_name", null: false
+  t.string "front_image_url"
+  t.string "logo_image_url"
   t.string "industry"
   t.text "company_explanation", limit: 400, null: false
+  t.string "explanation_image1_url"
+  t.string "explanation_image2_url"
   t.string "homepage_url"
   t.string "capital_stock"
   t.string "employee_count"
@@ -44,16 +48,43 @@ end
 
 create_table "internship_recruits", force: true do |t|
   t.text "title", limit: 35, null: false
+  t.string "title_image_url"
   t.text "catch_copy", limit: 20, null: false
+
+  # 職種
+  t.boolean "is_job_category_sale"
+  t.boolean "is_job_category_engineer"
+  t.boolean "is_job_category_planner"
+  t.boolean "is_job_category_marketing"
+  t.boolean "is_job_category_designer"
+  t.boolean "is_job_category_human_resource"
+  t.boolean "is_job_category_editor"
+  t.boolean "is_job_category_clercial"
+  t.boolean "is_job_category_consulting"
+  t.boolean "is_job_category_other"
+
   t.integer "area", limit: 1, null: false, default: 0
   t.text "work_assignment", limit: 400, null: false
+  t.string "work_image1_url"
+  t.string "work_image2_url"
   t.text "company_promotion", limit: 400, null: false
+  t.integer "salary_system", limit: 1, null: false, default: 0
   t.integer "min_salary", null: false
   t.integer "max_salary", null: false
   t.text "salary_remark"
   t.boolean "supplies_transportation_expense", null: false
   t.text "transportation_expense_remark"
-  t.string "college_grade", null: false
+
+  t.boolean "intend_for_high_school"
+  t.boolean "intend_for_college1"
+  t.boolean "intend_for_college2"
+  t.boolean "intend_for_college3"
+  t.boolean "intend_for_college4"
+  t.boolean "intend_for_master"
+  t.boolean "intend_for_doctor"
+  t.boolean "intend_for_graduated"
+  t.boolean "intend_for_other"
+
   t.integer "working_day", limit: 1, null: false, default: 0
   t.integer "working_hour", null: false
   t.boolean "work_on_monday"
@@ -99,7 +130,8 @@ end
 #   "東京都（その他）",
 #   "神奈川県",
 #   "埼玉県",
-#   "千葉県"
+#   "千葉県",
+#   "その他"
 # ]
 # add_enum "internship_recruits", "transportation_expense", ["あり", "なし"]
 # add_enum "internship_recruits", "work_day", ["週１回以上", "週２回以上", "週３回以上", "週４回以上", "週５回"]

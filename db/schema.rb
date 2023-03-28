@@ -16,12 +16,12 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -52,8 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "company_overalls", force: :cascade do |t|
     t.string "company_name", null: false
+    t.string "front_image_url"
+    t.string "logo_image_url"
     t.string "industry"
     t.text "company_explanation", null: false
+    t.string "explanation_image1_url"
+    t.string "explanation_image2_url"
     t.string "homepage_url"
     t.string "capital_stock"
     t.string "employee_count"
@@ -96,16 +100,38 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "internship_recruits", force: :cascade do |t|
     t.text "title", null: false
+    t.string "title_image_url"
     t.text "catch_copy", null: false
+    t.boolean "is_job_category_sale"
+    t.boolean "is_job_category_engineer"
+    t.boolean "is_job_category_planner"
+    t.boolean "is_job_category_marketing"
+    t.boolean "is_job_category_designer"
+    t.boolean "is_job_category_human_resource"
+    t.boolean "is_job_category_editor"
+    t.boolean "is_job_category_clercial"
+    t.boolean "is_job_category_consulting"
+    t.boolean "is_job_category_other"
     t.integer "area", limit: 2, default: 0, null: false
     t.text "work_assignment", null: false
+    t.string "work_image1_url"
+    t.string "work_image2_url"
     t.text "company_promotion", null: false
+    t.integer "salary_system", limit: 2, default: 0, null: false
     t.integer "min_salary", null: false
     t.integer "max_salary", null: false
     t.text "salary_remark"
     t.boolean "supplies_transportation_expense", null: false
     t.text "transportation_expense_remark"
-    t.string "college_grade", null: false
+    t.boolean "intend_for_high_school"
+    t.boolean "intend_for_college1"
+    t.boolean "intend_for_college2"
+    t.boolean "intend_for_college3"
+    t.boolean "intend_for_college4"
+    t.boolean "intend_for_master"
+    t.boolean "intend_for_doctor"
+    t.boolean "intend_for_graduated"
+    t.boolean "intend_for_other"
     t.integer "working_day", limit: 2, default: 0, null: false
     t.integer "working_hour", null: false
     t.boolean "work_on_monday"
@@ -167,7 +193,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "high_school_name", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.integer "interesting_job", limit: 2, default: 0, null: false
+    t.integer "interesting_job_category", limit: 2, default: 0, null: false
     t.boolean "has_internship_experiment", null: false
     t.boolean "has_other_company_offer", null: false
     t.text "self_promotion", null: false
