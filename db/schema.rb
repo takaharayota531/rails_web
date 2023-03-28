@@ -16,12 +16,12 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -45,15 +45,19 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_notification_enabled", null: false
+    t.boolean "is_notification_enabled", default: false, null: false
     t.index ["email"], name: "index_company_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
   end
 
   create_table "company_overalls", force: :cascade do |t|
     t.string "company_name", null: false
+    t.string "front_image_url"
+    t.string "logo_image_url"
     t.string "industry"
     t.text "company_explanation", null: false
+    t.string "explanation_image1_url"
+    t.string "explanation_image2_url"
     t.string "homepage_url"
     t.string "capital_stock"
     t.string "employee_count"
@@ -96,25 +100,47 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "internship_recruits", force: :cascade do |t|
     t.text "title", null: false
+    t.string "title_image_url"
     t.text "catch_copy", null: false
+    t.boolean "is_job_category_sale", default: false, null: false
+    t.boolean "is_job_category_engineer", default: false, null: false
+    t.boolean "is_job_category_planner", default: false, null: false
+    t.boolean "is_job_category_marketing", default: false, null: false
+    t.boolean "is_job_category_designer", default: false, null: false
+    t.boolean "is_job_category_human_resource", default: false, null: false
+    t.boolean "is_job_category_editor", default: false, null: false
+    t.boolean "is_job_category_clercial", default: false, null: false
+    t.boolean "is_job_category_consulting", default: false, null: false
+    t.boolean "is_job_category_other", default: false, null: false
     t.integer "area", limit: 2, default: 0, null: false
     t.text "work_assignment", null: false
+    t.string "work_image1_url"
+    t.string "work_image2_url"
     t.text "company_promotion", null: false
+    t.integer "salary_system", limit: 2, default: 0, null: false
     t.integer "min_salary", null: false
     t.integer "max_salary", null: false
     t.text "salary_remark"
-    t.boolean "supplies_transportation_expense", null: false
+    t.boolean "supplies_transportation_expense", default: false, null: false
     t.text "transportation_expense_remark"
-    t.string "college_grade", null: false
+    t.boolean "intend_for_high_school", default: false, null: false
+    t.boolean "intend_for_college1", default: false, null: false
+    t.boolean "intend_for_college2", default: false, null: false
+    t.boolean "intend_for_college3", default: false, null: false
+    t.boolean "intend_for_college4", default: false, null: false
+    t.boolean "intend_for_master", default: false, null: false
+    t.boolean "intend_for_doctor", default: false, null: false
+    t.boolean "intend_for_graduated", default: false, null: false
+    t.boolean "intend_for_other", default: false, null: false
     t.integer "working_day", limit: 2, default: 0, null: false
     t.integer "working_hour", null: false
-    t.boolean "work_on_monday"
-    t.boolean "work_on_tuesday"
-    t.boolean "work_on_wednesday"
-    t.boolean "work_on_thursday"
-    t.boolean "work_on_friday"
-    t.boolean "work_on_saturday"
-    t.boolean "work_on_sunday"
+    t.boolean "work_on_monday", default: false, null: false
+    t.boolean "work_on_tuesday", default: false, null: false
+    t.boolean "work_on_wednesday", default: false, null: false
+    t.boolean "work_on_thursday", default: false, null: false
+    t.boolean "work_on_friday", default: false, null: false
+    t.boolean "work_on_saturday", default: false, null: false
+    t.boolean "work_on_sunday", default: false, null: false
     t.string "member1_positon", limit: 15
     t.text "member1_profile"
     t.string "member2_positon", limit: 15
@@ -167,9 +193,9 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "high_school_name", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.integer "interesting_job", limit: 2, default: 0, null: false
-    t.boolean "has_internship_experiment", null: false
-    t.boolean "has_other_company_offer", null: false
+    t.integer "interesting_job_category", limit: 2, default: 0, null: false
+    t.boolean "has_internship_experiment", default: false, null: false
+    t.boolean "has_other_company_offer", default: false, null: false
     t.text "self_promotion", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
