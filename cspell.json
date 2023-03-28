@@ -1,9 +1,16 @@
 {
   "version": "0.2",
-  "ignorePaths": [],
+  "ignorePaths": [".devcontainer"],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": [],
-  "ignoreWords": ["rubocop"],
+  "words": [
+    "dbdata",
+    "dbeaver",
+    "devcontainer",
+    "Nokogiri",
+    "rubocop",
+    "Schemafile"
+  ],
+  "ignoreWords": [],
   "import": []
 }
