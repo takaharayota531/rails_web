@@ -180,5 +180,4 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "uid", null: false
     t.string "name", null: false
   end
-
 end
