@@ -21,5 +21,8 @@
     }
   },
   "ruby.format": "rubocop", // use rubocop for formatting
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  }
 }
