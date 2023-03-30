@@ -31,3 +31,6 @@
 /config/master.key
 
 .DS_Store
+
+# envをgit管理下から外す(LINEのsecret keyが入っているから)
+/.env
