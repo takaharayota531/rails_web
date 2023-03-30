@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :companies do
+    get 'accounts/new'
+    get 'accounts/edit'
+  end
   # ルートパスはどこでもいい
   root to: 'homes#index'
   devise_for :users, controllers: {
