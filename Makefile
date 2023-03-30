@@ -9,7 +9,7 @@ testmigrate:
 check:
 	rails test
 	rubocop -a
-	git pull origin develop 
+	
 
 # volumeごとデータベースを初期化した時用
 setup:
