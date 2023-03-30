@@ -80,24 +80,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "feature_categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "internship_feature_category_relations", force: :cascade do |t|
-    t.integer "internship_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "internship_job_category_relations", force: :cascade do |t|
-    t.integer "internship_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
   create_table "internship_recruits", force: :cascade do |t|
     t.text "title", null: false
     t.string "title_image_url"
@@ -117,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "work_image1_url"
     t.string "work_image2_url"
     t.text "company_promotion", null: false
+    t.integer "working_style", limit: 2, default: 0, null: false
     t.integer "salary_system", limit: 2, default: 0, null: false
     t.integer "min_salary", null: false
     t.integer "max_salary", null: false
@@ -151,28 +134,10 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "internship_skill_category_relations", force: :cascade do |t|
-    t.integer "internship_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
   create_table "internships", force: :cascade do |t|
     t.integer "company_id", null: false
     t.integer "internship_recruit_id", null: false
     t.integer "company_overall_id", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "job_categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "skill_categories", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
@@ -206,4 +171,5 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "uid", null: false
     t.string "name", null: false
   end
+
 end

@@ -68,6 +68,7 @@ create_table "internship_recruits", force: true do |t|
   t.string "work_image1_url"
   t.string "work_image2_url"
   t.text "company_promotion", limit: 400, null: false
+  t.integer "working_style", limit: 1, null: false, default: 0
   t.integer "salary_system", limit: 1, null: false, default: 0
   t.integer "min_salary", null: false
   t.integer "max_salary", null: false
