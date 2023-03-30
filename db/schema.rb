@@ -149,6 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.text "member3_profile"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.integer "working_style", limit: 2, default: 0, null: false
   end
 
   create_table "internship_skill_category_relations", force: :cascade do |t|
@@ -206,4 +207,5 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "uid", null: false
     t.string "name", null: false
   end
+
 end
