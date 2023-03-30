@@ -7,14 +7,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
 
+  # 認証の実装
   def authenticate_action
     @omniauth = request.env["omniauth.auth"]
     if @omniauth.present?
       @profile = User.find_or_initialize_by(provider: @omniauth["provider"], uid: @omniauth["uid"])
+      # emailが登録されていなかった場合
       if @profile.email.blank?
+        # emailをuidとprovider(ここではline)で構成する
         email = @omniauth["info"]["email"] || "#{@omniauth['uid']}-#{@omniauth['provider']}@example.com"
         @profile = current_user || User.create!(provider: @omniauth["provider"], uid: @omniauth["uid"], email:, name: @omniauth["info"]["name"], password: Devise.friendly_token[0, 20])
       end
+      # TODO: 高原：理解する
       @profile.create_line_values(@omniauth)
       sign_in(:user, @profile)
     end
