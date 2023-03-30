@@ -1,7 +1,9 @@
 # ApplicationController を Devise::OmniauthCallbacksController に変更
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # 以下を追加
-  def line = basic_action
+  def line 
+     basic_action
+  end
 
   private
 
