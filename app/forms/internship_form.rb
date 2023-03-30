@@ -1,6 +1,5 @@
 # internship記事を操作するためのフォームオブジェクト
-# internship,internship_recruit,company_overall,
-# internship_feature_category_relation*3の6つをまとめる
+# internship,internship_recruit,company_overallの3つをまとめる
 # internships_controllerで使う
 
 class InternshipForm

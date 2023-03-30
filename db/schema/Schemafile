@@ -1,6 +1,4 @@
 require "./admin.schema"
-require "./category_model.schema"
 require "./company_model.schema"
-require "./internship_category_relation_model.schema"
 require "./user_company_relation_model.schema"
 require "./user_model.schema"
