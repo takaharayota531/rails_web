@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "homes#index"
   # 管理者の登録
   get 'admins/sign_up', to: 'admins#new'
   post 'admins/sign_up', to: 'admins#create'
