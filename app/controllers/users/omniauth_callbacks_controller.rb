@@ -2,12 +2,12 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # 以下を追加
   def line
-    basic_action
+    authenticate_action
   end
 
   private
 
-  def basic_action
+  def authenticate_action
     @omniauth = request.env["omniauth.auth"]
     if @omniauth.present?
       @profile = User.find_or_initialize_by(provider: @omniauth["provider"], uid: @omniauth["uid"])
@@ -15,15 +15,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         email = @omniauth["info"]["email"] || "#{@omniauth['uid']}-#{@omniauth['provider']}@example.com"
         @profile = current_user || User.create!(provider: @omniauth["provider"], uid: @omniauth["uid"], email:, name: @omniauth["info"]["name"], password: Devise.friendly_token[0, 20])
       end
-      @profile.set_values(@omniauth)
+      @profile.create_line_values(@omniauth)
       sign_in(:user, @profile)
     end
     flash[:notice] = "ログインしました"
     redirect_to root_path
   end
 
-  def fake_email(_uid, _provider)
-    "#{auth.uid}-#{auth.provider}@example.com"
-  end
-  # 以上を追加
+  # 暫定的に記事に書いてあったがこれはなんなん
+  # TODO 高原：これ理解する
+  # def fake_email(_uid, _provider)
+  #   "#{auth.uid}-#{auth.provider}@example.com"
+  # end
 end

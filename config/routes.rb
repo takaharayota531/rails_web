@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # ルートパスはどこでもいい
   root to: 'homes#index'
+  devise_for :users, controllers: {
+
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   devise_for :admins, controllers: {
     registrations: 'admins',
     sessions: 'admin_sessions'

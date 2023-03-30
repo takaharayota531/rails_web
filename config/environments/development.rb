@@ -71,5 +71,5 @@ Rails.application.configure do
 
   # ngrokで外部接続できるようにする時に用いる
   # ngrokを使う時以外はコメントアウトしておく
-  # config.hosts.clear
+  config.hosts.clear
 end
