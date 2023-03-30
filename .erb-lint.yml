@@ -7,6 +7,8 @@ linters:
   # 自動生成したERBファイルの閉じタグを検証から除外する
   SelfClosingTag:
     enabled: false
+  ErbSafety:
+    enabled: true
   Rubocop:
     enabled: true
     rubocop_config:
@@ -27,4 +29,6 @@ linters:
       Lint/UselessAssignment:
         Enabled: false
       Rails/OutputSafety:
+        Enabled: false
+      Style/HashSyntax:
         Enabled: false

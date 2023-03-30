@@ -71,7 +71,7 @@ group :development do
   gem 'rubocop-rails', require: false
 
   gem 'solargraph'
-  gem 'htmlbeautifier'
+  gem 'better_html'
   gem 'erb_lint', require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

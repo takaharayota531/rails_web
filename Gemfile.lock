@@ -128,7 +128,6 @@ GEM
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
-    htmlbeautifier (1.4.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.0)
@@ -352,13 +351,13 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.18)
+  better_html
   bootsnap (= 1.12.0)
   capybara (= 3.37.1)
   debug (= 1.5.0)
   devise
   dotenv-rails
   erb_lint
-  htmlbeautifier
   importmap-rails (= 1.1.0)
   jbuilder (= 2.11.5)
   minitest (= 5.15.0)
