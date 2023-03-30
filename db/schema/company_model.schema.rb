@@ -44,6 +44,8 @@ create_table "company_overalls", force: true do |t|
   t.string "place"
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
+
+  t.references :internship, foreign_key: true, index: { unique: true }
 end
 
 create_table "internship_recruits", force: true do |t|

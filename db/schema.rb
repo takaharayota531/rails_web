@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "place"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "internship_id"
+    t.index ["internship_id"], name: "index_company_overalls_on_internship_id", unique: true
   end
 
   create_table "entries", force: :cascade do |t|
@@ -184,4 +186,5 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "company_overalls", "internships"
 end
