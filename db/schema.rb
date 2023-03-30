@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "place"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "internship_id"
+    t.index ["internship_id"], name: "index_company_overalls_on_internship_id", unique: true
   end
 
   create_table "entries", force: :cascade do |t|
@@ -81,9 +83,9 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   end
 
   create_table "internship_recruits", force: :cascade do |t|
-    t.text "title", null: false
+    t.string "title", limit: 35, null: false
     t.string "title_image_url"
-    t.text "catch_copy", null: false
+    t.string "catch_copy", limit: 20, null: false
     t.boolean "is_job_category_sale", default: false, null: false
     t.boolean "is_job_category_engineer", default: false, null: false
     t.boolean "is_job_category_planner", default: false, null: false
@@ -125,11 +127,14 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.boolean "work_on_saturday", default: false, null: false
     t.boolean "work_on_sunday", default: false, null: false
     t.string "member1_positon", limit: 15
-    t.text "member1_profile"
+    t.string "member1_profile", limit: 100
+    t.string "member1_image_url"
     t.string "member2_positon", limit: 15
-    t.text "member2_profile"
+    t.string "member2_profile", limit: 100
+    t.string "member2_image_url"
     t.string "member3_positon", limit: 15
-    t.text "member3_profile"
+    t.string "member3_profile", limit: 100
+    t.string "member3_image_url"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
@@ -167,9 +172,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -177,8 +179,12 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "name", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "company_overalls", "internships"
 end

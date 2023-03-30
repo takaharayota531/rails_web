@@ -44,12 +44,14 @@ create_table "company_overalls", force: true do |t|
   t.string "place"
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
+
+  t.references :internship, foreign_key: true, index: { unique: true }
 end
 
 create_table "internship_recruits", force: true do |t|
-  t.text "title", limit: 35, null: false
+  t.string "title", limit: 35, null: false
   t.string "title_image_url"
-  t.text "catch_copy", limit: 20, null: false
+  t.string "catch_copy", limit: 20, null: false
 
   # 職種
   t.boolean "is_job_category_sale", null: false, default: false
@@ -96,11 +98,14 @@ create_table "internship_recruits", force: true do |t|
   t.boolean "work_on_saturday", null: false, default: false
   t.boolean "work_on_sunday", null: false, default: false
   t.string "member1_positon", limit: 15
-  t.text "member1_profile", limit: 100
+  t.string "member1_profile", limit: 100
+  t.string "member1_image_url"
   t.string "member2_positon", limit: 15
-  t.text "member2_profile", limit: 100
+  t.string "member2_profile", limit: 100
+  t.string "member2_image_url"
   t.string "member3_positon", limit: 15
-  t.text "member3_profile", limit: 100
+  t.string "member3_profile", limit: 100
+  t.string "member3_image_url"
   t.timestamp "created_at", null: false
   t.timestamp "updated_at", null: false
 end
