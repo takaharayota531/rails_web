@@ -35,8 +35,17 @@ create_table "user_infos", force: true do |t|
   t.string "email", null: false
   t.string "phone_number", null: false
 
-  # タグに変わる可能性あり
-  t.integer "interesting_job_category", limit: 1, null: false, default: 0
+  t.boolean "is_interested_in_sale", null: false, default: false
+  t.boolean "is_interested_in_engineer", null: false, default: false
+  t.boolean "is_interested_in_planner", null: false, default: false
+  t.boolean "is_interested_in_marketing", null: false, default: false
+  t.boolean "is_interested_in_designer", null: false, default: false  
+  t.boolean "is_interested_in_human_resource", null: false, default: false
+  t.boolean "is_interested_in_editor", null: false, default: false
+  t.boolean "is_interested_in_clercial", null: false, default: false
+  t.boolean "is_interested_in_consulting", null: false, default: false
+  t.boolean "is_interested_in_other", null: false, default: false
+
   t.boolean "has_internship_experiment", null: false, default: false
   t.boolean "has_other_company_offer", null: false, default: false
   t.text "self_promotion", limit: 400, null: false
