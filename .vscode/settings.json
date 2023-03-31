@@ -4,7 +4,7 @@
     "editor.defaultFormatter": "rebornix.ruby"
   },
   "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+    "editor.defaultFormatter": "manuelpuyol.erb-linter"
   },
   "vscode-erb-beautify.useBundler": true,
   "files.associations": {
@@ -21,5 +21,8 @@
     }
   },
   "ruby.format": "rubocop", // use rubocop for formatting
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  }
 }
