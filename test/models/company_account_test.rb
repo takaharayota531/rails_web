@@ -2,10 +2,17 @@ require "test_helper"
 
 class CompanyAccountTest < ActiveSupport::TestCase
   def setup
+    @company = Company.new(
+      name: "user",
+      email: "email@example.com",
+      phone_number: "0809875",
+      recruiter_name: "recruiter"
+    )
     @company_account = CompanyAccount.new(
-      company_id: 1, name: "user",
+      company: @company, name: "user",
       email: "user@example.com",
-      password: "foobar", password_confirmation: "foobar"
+      password: "foobar_test", password_confirmation: "foobar_test",
+      is_notification_enabled: true
     )
   end
 
@@ -13,6 +20,9 @@ class CompanyAccountTest < ActiveSupport::TestCase
     assert @company_account.valid?
   end
 
+  test "company should be valid" do
+    assert @company.valid?
+  end
   test "email should be present" do
     @company_account.email = "     "
     assert_not @company_account.valid?

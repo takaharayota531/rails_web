@@ -20,6 +20,7 @@ create_table "company_accounts", force: true do |t|
   t.index ["email"], name: "index_company_accounts_on_email", unique: true
   t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
   t.boolean "is_notification_enabled", null: false, default: false
+  t.references :company, foreign_key: true, index: { unique: true }
 end
 
 create_table "internships", force: true do |t|

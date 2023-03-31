@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   end
 
   create_table "company_accounts", force: :cascade do |t|
-    t.integer "company_id", null: false
+    t.bigint "company_id"
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_notification_enabled", default: false, null: false
+    t.index ["company_id"], name: "index_company_accounts_on_company_id", unique: true
     t.index ["email"], name: "index_company_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_company_accounts_on_reset_password_token", unique: true
   end
@@ -186,5 +187,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "company_accounts", "companies"
   add_foreign_key "company_overalls", "internships"
 end
