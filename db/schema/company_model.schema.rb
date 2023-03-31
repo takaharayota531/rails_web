@@ -55,16 +55,7 @@ create_table "internship_recruits", force: true do |t|
   t.string "catch_copy", limit: 20, null: false
 
   # 職種
-  t.boolean "is_job_category_sale", null: false, default: false
-  t.boolean "is_job_category_engineer", null: false, default: false
-  t.boolean "is_job_category_planner", null: false, default: false
-  t.boolean "is_job_category_marketing", null: false, default: false
-  t.boolean "is_job_category_designer", null: false, default: false
-  t.boolean "is_job_category_human_resource", null: false, default: false
-  t.boolean "is_job_category_editor", null: false, default: false
-  t.boolean "is_job_category_clercial", null: false, default: false
-  t.boolean "is_job_category_consulting", null: false, default: false
-  t.boolean "is_job_category_other", null: false, default: false
+  t.integer "job_category", limit: 1, null: false, default: 0
 
   t.integer "area", limit: 1, null: false, default: 0
   t.text "work_assignment", limit: 400, null: false

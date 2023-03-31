@@ -87,16 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "title", limit: 35, null: false
     t.string "title_image_url"
     t.string "catch_copy", limit: 20, null: false
-    t.boolean "is_job_category_sale", default: false, null: false
-    t.boolean "is_job_category_engineer", default: false, null: false
-    t.boolean "is_job_category_planner", default: false, null: false
-    t.boolean "is_job_category_marketing", default: false, null: false
-    t.boolean "is_job_category_designer", default: false, null: false
-    t.boolean "is_job_category_human_resource", default: false, null: false
-    t.boolean "is_job_category_editor", default: false, null: false
-    t.boolean "is_job_category_clercial", default: false, null: false
-    t.boolean "is_job_category_consulting", default: false, null: false
-    t.boolean "is_job_category_other", default: false, null: false
     t.integer "area", limit: 2, default: 0, null: false
     t.text "work_assignment", null: false
     t.string "work_image1_url"
@@ -138,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "member3_image_url"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.integer "job_category", limit: 2, default: 0, null: false
   end
 
   create_table "internships", force: :cascade do |t|
@@ -164,12 +155,21 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "high_school_name", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.integer "interesting_job_category", limit: 2, default: 0, null: false
     t.boolean "has_internship_experiment", default: false, null: false
     t.boolean "has_other_company_offer", default: false, null: false
     t.text "self_promotion", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.boolean "is_interested_in_sale", default: false, null: false
+    t.boolean "is_interested_in_engineer", default: false, null: false
+    t.boolean "is_interested_in_planner", default: false, null: false
+    t.boolean "is_interested_in_marketing", default: false, null: false
+    t.boolean "is_interested_in_designer", default: false, null: false
+    t.boolean "is_interested_in_human_resource", default: false, null: false
+    t.boolean "is_interested_in_editor", default: false, null: false
+    t.boolean "is_interested_in_clercial", default: false, null: false
+    t.boolean "is_interested_in_consulting", default: false, null: false
+    t.boolean "is_interested_in_other", default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|
