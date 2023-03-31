@@ -1,7 +1,6 @@
 # 企業アカウント
 class Company < ApplicationRecord
-
-  has_many :company_account, dependent: :destroy
+  has_many :company_accounts, dependent: :destroy
   # Include default devise moduless. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
