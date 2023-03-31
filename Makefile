@@ -8,8 +8,8 @@ testmigrate:
 # pushする前にしておきたい処理
 check:
 	rails test
+	bundle exec rspec
 	rubocop -a
-	
 
 # volumeごとデータベースを初期化した時用
 setup:

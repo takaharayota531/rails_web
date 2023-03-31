@@ -19,5 +19,8 @@ jobs:
       - name: run rails test
         run: docker compose exec web rails test
 
+      - name: run rspec
+        run: docker compose exec web bundle exec rspec
+
       - name: run rubocop
         run: docker compose exec web rubocop
