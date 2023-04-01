@@ -13,5 +13,7 @@ assignees: ''
 ・new.html.erb
 
 ### issue割り当て者が思う実装方針
+・もしあれば
 
 ###参考記事
+・公式documentなど
